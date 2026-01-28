@@ -73,6 +73,43 @@ app.get("/pets/:id", (req, res) => {
   }
 });
 
+app.put("/pets/:id", [validarPet], (req, res) => {
+  try {
+    const { id } = req.params;
+    const { nome, raca, idade, nomeTutor } = req.body;
+
+    const petIndex = pets.findIndex((p) => p.id === id);
+
+    if (petIndex === -1) {
+      return res
+        .status(404)
+        .send({ ok: false, mensagem: "Pet não encontrado para atualização" });
+    }
+
+    pets[petIndex] = {
+      id,
+      nome,
+      raca,
+      idade,
+      nomeTutor,
+    };
+
+    res.status(200).send({
+      ok: true,
+      mensagem: "Pet atualizado com sucesso!",
+      pet: pets[petIndex],
+    });
+  } catch (error) {
+    res
+      .status(500)
+      .send({
+        ok: false,
+        mensagem: "Erro ao atualizar pet",
+        erro: error.message,
+      });
+  }
+});
+
 app.get("/", (req, res) => {
   res.send("API de Pets com Dotenv configurado! 🐾");
 });
