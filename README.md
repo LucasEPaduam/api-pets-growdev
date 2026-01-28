@@ -29,7 +29,7 @@ Uma API REST completa para gerenciamento de pets, desenvolvida como parte de um 
 
 A documentação detalhada, gerada e publicada através do **POSTMAN**, contendo exemplos de requisições e respostas pode ser acessada no link abaixo:
 
-> 🔗 **[CLIQUE AQUI PARA ACESSAR A DOCUMENTAÇÃO (POSTMAN)](COLE_SEU_LINK_AQUI)**
+> 🔗 **[CLIQUE AQUI PARA ACESSAR A DOCUMENTAÇÃO (POSTMAN)](https://documenter.getpostman.com/view/21934218/2sBXVo7mvu)**
 
 ---
 
@@ -43,6 +43,6 @@ A documentação detalhada, gerada e publicada através do **POSTMAN**, contendo
 
 ## 📦 Deploy
 
-O projeto está configurado para deploy automático na plataforma **Render**.
+O projeto está configurado para deploy automático na plataforma ![Render](https://img.shields.io/badge/Render-%2346E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
 
-![Render](https://img.shields.io/badge/Render-%2346E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
+> 🔗 **API em Produção:** [https://api-pets-growdev-vestetech.onrender.com/](https://api-pets-growdev-vestetech.onrender.com/)

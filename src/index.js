@@ -3,10 +3,12 @@ import express from "express";
 import { pets } from "./pets.js";
 import { v4 as uuidv4 } from "uuid";
 import { validarPet } from "./middlewares/validator.js";
+import cors from "cors";
 
 const app = express();
-
 const PORT = process.env.PORT || 3000;
+
+app.use(cors());
 
 app.use(express.json());
 
@@ -145,7 +147,7 @@ app.delete("/pets/:id", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("API de Pets com Dotenv configurado! 🐾");
+  res.send("API de Pets da Growdev Online! 🐾");
 });
 
 app.listen(PORT, () => {
