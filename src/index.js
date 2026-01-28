@@ -24,7 +24,7 @@ app.get("/pets", (req, res) => {
   }
 });
 
-app.post("/pets", validarPet, (req, res) => {
+app.post("/pets", [validarPet], (req, res) => {
   try {
     const { nome, raca, idade, nomeTutor } = req.body;
 
@@ -46,6 +46,30 @@ app.post("/pets", validarPet, (req, res) => {
     res
       .status(500)
       .send({ mensagem: "Erro ao cadastrar pet", erro: error.message });
+  }
+});
+
+app.get("/pets/:id", (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const petLocalizado = pets.find((p) => p.id === id);
+
+    if (!petLocalizado) {
+      return res
+        .status(404)
+        .send({ ok: false, mensagem: "Pet não encontrado" });
+    }
+
+    res.status(200).send({
+      ok: true,
+      mensagem: "Pet encontrado com sucesso",
+      petLocalizado,
+    });
+  } catch (error) {
+    res
+      .status(500)
+      .send({ mensagem: "Erro ao buscar o pet", erro: error.message });
   }
 });
 
